@@ -1,4 +1,7 @@
 import React from "react";
+import "./InterviewerListItem.scss"
+
+// --------------- Component Function --------------- //
 
 export default function InterviewerListItem(props) {
 
