@@ -1,6 +1,6 @@
-import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
+import React, { useState } from "react";
 
   const days = [
   {
@@ -21,6 +21,7 @@ import DayList from "./DayList";
 ];
 
 export default function Application(props) {
+  const [day, setDay] = useState("Monday");
 
   return (
     <main className="layout">
@@ -30,12 +31,9 @@ export default function Application(props) {
           src="images/logo.png"
           alt="Interview Scheduler"
         />
-        <hr className="sidebar__separator sidebar--centered" />
-        <nav className="sidebar__menu">
-            <DayList
-            days={days}
-            day={"Monday"}
-            setDay={day => console.log(day)}/>
+        <hr className="sidebarseparator sidebar--centered" />
+        <nav className="sidebarmenu">
+            <DayList days={days} day={day} setDay={setDay} />
           </nav>
         <img
           className="sidebar__lhl sidebar--centered"
