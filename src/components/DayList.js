@@ -18,7 +18,7 @@ const DayListItems = props.days.map(day => {
 
   return (
     <ul>
-    {DayListItems}
-  </ul>
+      {DayListItems}
+    </ul>
   );
 }
