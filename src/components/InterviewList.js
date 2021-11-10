@@ -1,6 +1,12 @@
 import React from "react";
+import "./InterviewList.scss"
+
+// --------------- Component Function --------------- //
 
 export default function InterviewList(props) {
+
+
+// --------------- InterviewList component --------------- //
 
   return(
     <section className="interviewers">
