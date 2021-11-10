@@ -6,6 +6,9 @@ import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 
+// --------------- Stories --------------- //
+
+// Button
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -22,6 +25,7 @@ storiesOf("Button", module)
     </Button>
   ));
 
+// DayListItem
 storiesOf("DayListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -33,6 +37,7 @@ storiesOf("DayListItem", module)
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
   ));
 
+// DayList & mock data
   const days = [
   {
     id: 1,
