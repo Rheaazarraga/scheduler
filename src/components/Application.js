@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Button from "components/Button";
-import DayListItem from "components/DayListItem";
 import DayList from "./DayList";
 import "components/Application.scss";
 
@@ -26,7 +24,7 @@ export default function Application(props) {
   const [day, setDay] = useState("Monday");
 
   return (
-    
+
     <main className="layout">
       <section className="sidebar">
         <img
