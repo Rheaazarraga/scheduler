@@ -9,7 +9,7 @@ export default function InterviewerListItem(props) {
   const interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected
   });
-  console.log(interviewerClass);
+
   const clickHandler = () => {
     props.setInterviewer();
   }
