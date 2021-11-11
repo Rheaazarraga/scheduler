@@ -6,7 +6,7 @@ import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
-import InterviewList from "components/InterviewList";
+import InterviewerList from "components/InterviewerList";
 
 // --------------- Stories --------------- //
 

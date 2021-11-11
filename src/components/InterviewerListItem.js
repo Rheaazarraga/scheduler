@@ -7,10 +7,9 @@ import classNames from "classnames";
 export default function InterviewerListItem(props) {
 
   const interviewerClass = classNames("interviewers__item", {
-    "interviewers__item--selected": props.selected,
-    "interviewers__item--full": props.interviewers === 0
+    "interviewers__item--selected": props.selected
   });
-
+  console.log(interviewerClass);
   const clickHandler = () => {
     props.setInterviewer();
   }
