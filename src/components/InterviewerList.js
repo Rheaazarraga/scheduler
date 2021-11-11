@@ -18,7 +18,6 @@ export default function InterviewerList(props) {
         />
     )
   });
-  console.log(interviewers);
 
 // --------------- InterviewList component --------------- //
 
