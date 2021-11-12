@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DayList from "./DayList";
 import "components/Application.scss";
 
-  const days = [
+const days = [
   {
     id: 1,
     name: "Monday",
@@ -11,11 +11,11 @@ import "components/Application.scss";
   {
     id: 2,
     name: "Tuesday",
-    spots:5
+    spots: 5
   },
   {
     id: 3,
-    name:"Wednesday",
+    name: "Wednesday",
     spots: 0
   },
 ];
@@ -34,12 +34,12 @@ export default function Application(props) {
         />
         <hr className="sidebarseparator sidebar--centered" />
         <nav className="sidebarmenu">
-            <DayList
-              days={days}
-              day={day}
-              setDay={setDay}
-            />
-          </nav>
+          <DayList
+            days={days}
+            value={day}
+            onChange={setDay}
+          />
+        </nav>
         <img
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
