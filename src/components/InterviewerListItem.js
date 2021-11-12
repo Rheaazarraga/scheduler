@@ -10,16 +10,13 @@ export default function InterviewerListItem(props) {
     "interviewers__item--selected": props.selected
   });
 
-  const clickHandler = () => {
-    props.setInterviewer();
-  }
 
-// --------------- InterviewerListItem component --------------- //
+  // --------------- InterviewerListItem component --------------- //
 
   return (
-    <li 
+    <li
       className={interviewerClass}
-        onClick={clickHandler}>
+      onClick={props.setInterviewer}>
       <img
         className="interviewers__item-image"
         src={props.avatar}
