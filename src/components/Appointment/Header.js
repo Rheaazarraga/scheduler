@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 
 // --------------- Component Function --------------- //
 export default function Header(props) {
