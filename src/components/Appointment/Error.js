@@ -20,5 +20,5 @@ export default function Error(props) {
       />
     </main>
 
-  )
+  );
 }
