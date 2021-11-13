@@ -8,9 +8,9 @@ export default function Empty(props) {
   return (
     <main className="appointment__add">
       <img
-      className="appointment__add-button"
-      src="images/add.png"
-      alt="Add"
+        src="images/add.png"
+        alt="Add"
+        className="appointment__add-button" onClick={props.onAdd}
       />
     </main>
   );
