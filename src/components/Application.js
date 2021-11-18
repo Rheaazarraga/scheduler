@@ -4,7 +4,6 @@ import "components/Application.scss";
 import Appointment from "./Appointment";
 import axios from "axios";
 
-const [days, setDays] = useState([]);
 
 const appointments = {
   "1": {
@@ -47,6 +46,7 @@ const appointments = {
 
 export default function Application(props) {
   const [day, setDay] = useState("Monday");
+  const [days, setDays] = useState([]);
 
   const appointmentsArray = Object.values(appointments).map(appointment => {
     return (
