@@ -14,6 +14,7 @@ const DayListItems = props.days.map(day => {
           selected={day.name === props.value}
           setDay={() => props.onChange(props.name)}/>
 });
+
 // --------------- DayList component ---------------  //
 
   return (
