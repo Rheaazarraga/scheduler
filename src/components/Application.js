@@ -3,9 +3,11 @@ import DayList from "./DayList";
 import "components/Application.scss";
 import Appointment from "./Appointment";
 import axios from "axios";
+import { getAppointmentsForDay } from "./helpers/selectors";
 
 
 export default function Application(props) {
+
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -39,9 +41,9 @@ export default function Application(props) {
         <hr className="sidebarseparator sidebar--centered" />
         <nav className="sidebarmenu">
           <DayList
-            days={days}
-            value={days}
-            onChange={setDays}
+            days={state.days}
+            value={state.day}
+            onChange={state.setDays}
           />
         </nav>
         <img
