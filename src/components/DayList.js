@@ -12,7 +12,7 @@ const DayListItems = props.days.map(day => {
           name={day.name}
           spots={day.spots}
           selected={day.name === props.value}
-          setDay={() => props.onChange(props.name)}/>
+          setDay={() => props.onChange(day.name)}/>
 });
 
 // --------------- DayList component ---------------  //
