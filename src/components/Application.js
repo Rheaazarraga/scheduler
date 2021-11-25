@@ -27,7 +27,6 @@ export default function Application(props) {
     })
   }, []);
   
-  console.log("the state--", state);
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
