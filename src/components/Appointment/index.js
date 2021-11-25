@@ -39,7 +39,7 @@ export default function Appointment(props) {
         <Form
           student={props.student}
           interviewer={props.interviewer}
-          interviewers={[]}
+          interviewers={props.interviewers}
           onCancel={back}
         />
       )}
