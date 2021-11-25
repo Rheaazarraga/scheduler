@@ -33,12 +33,13 @@ export default function Appointment(props) {
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
-        />
-      )}
+          />
+          )}
       {mode === CREATE && (
         <Form
-          student={props.interview.student}
-          interviewer={props.interview.interviewer}
+        student={props.interview.student}
+        interviewer={props.interview.interviewer}
+        interviewers={[]}
         />
       )}
     </article>
