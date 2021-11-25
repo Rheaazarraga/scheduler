@@ -21,13 +21,13 @@ export function getInterview(state, interview) {
 }
 
 export function getInterviewersForDay(state, day) {
-  const selectedApptDay = state.days.filter(days => days.name === day);
+  const selectedApptDay = state.days.filter(eachDay => eachDay.name === day);
+  console.log("selectedApptDay", selectedApptDay);
   const interviewers = [];
 
   if (selectedApptDay[0]) {
-    const apptDayInterviewers = selectedApptDay.interviewers;
 
-    for (const numInterviewers of selectedApptDay) {
+    for (const numInterviewers of selectedApptDay[0].interviewers) {
       interviewers.push(state.interviewers[numInterviewers])
     }
   }
