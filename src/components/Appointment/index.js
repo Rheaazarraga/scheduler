@@ -5,9 +5,17 @@ import Show from "./Show";
 import Empty from "./Empty";
 import useVisualMode from "components/hooks/useVisualMode";
 
+
 // --------------- Component Function --------------- //
 
 export default function Appointment(props) {
+
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+
+  const { mode, transition, back } = useVisualMode(
+    props.interview ? SHOW : EMPTY
+  );
 
 
   // --------------- Appointment component --------------- //
