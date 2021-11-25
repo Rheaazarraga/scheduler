@@ -5,11 +5,11 @@ import React, { useState } from "react";
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
-  
+
   const transition = (newMode, replace = false) => {
     setMode(newMode);
-    setHistory(history => [...history, newMode])
-
+    //when replace is true then set the history to reflect that we are replacing the current mode
+    replace ? setHistory(prev => [...prev.slice(0, history.length - 1), newMode]) : setHistory(prev => [...prev, newMode]);
   };
 
   const back = () => {
@@ -19,14 +19,14 @@ export default function useVisualMode(initial) {
 
     //storing newHistory with a copy of history array
     const newHistory = [...history];
-    //using pop method to remove the last element from the array, changing the length and transition back
+    //using pop method to remove the last element from the array, changing the length to transition back
     newHistory.pop();
 
-    //accessing the last index of newHistory and storing in prevMode
-    const prevMode = newHistory[newHistory.length-1];
+    //setting the mode to the updated history, last element in the history array
+    const prevMode = newHistory[newHistory.length - 1];
     setMode(prevMode);
 
-    setHistory(newHistory);
-}
+    setHistory(newHistory); //setting the history to the array that doesn't have the last element
+  }
   return { mode, transition, back };
 };
