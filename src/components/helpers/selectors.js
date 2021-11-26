@@ -22,7 +22,6 @@ export function getInterview(state, interview) {
 
 export function getInterviewersForDay(state, day) {
   const selectedApptDay = state.days.filter(eachDay => eachDay.name === day);
-  console.log("selectedApptDay", selectedApptDay);
   const interviewers = [];
 
   if (selectedApptDay[0]) {
