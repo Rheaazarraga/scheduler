@@ -16,7 +16,6 @@ export default function Application(props) {
 
   const setDay = day => setState({ ...state, day });
 
-
   useEffect(() => {
     Promise.all([
       axios.get(`http://localhost:8001/api/days`),
@@ -47,6 +46,7 @@ export default function Application(props) {
         ...state.appointments,
         [id]: appointment
       };
+
       return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview })
         .then(() => {
           setState({
@@ -54,8 +54,28 @@ export default function Application(props) {
             appointments
           });
 
-        })
+        });
+    }
 
+    // When we cancel an interview it will have its value set to null
+    function cancelInterview(id) {
+      const appointment = {
+        ...state.appointments[id],
+        interview: null
+      };
+
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      
+      return axios.delete(`http://localhost:8001/api/appointments/${id}`, appointment)
+        .then(() => {
+          setState({
+            ...state,
+            appointments
+          });
+        });
     }
 
     return (
@@ -66,6 +86,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
