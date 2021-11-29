@@ -29,6 +29,12 @@ export default function Appointment(props) {
   );
 
   function save(name, interviewer) {
+
+    if (!name || !interviewer) {
+      transition(ERROR_SAVE)
+      return;
+    }
+
     const interview = {
       student: name,
       interviewer
@@ -37,9 +43,9 @@ export default function Appointment(props) {
     transition(SAVING);
 
     props
-    .bookInterview(props.id, interview)
-    .then(() => transition(SHOW))
-    .catch(error => transition(ERROR_SAVE, true));
+      .bookInterview(props.id, interview)
+      .then(() => transition(SHOW))
+      .catch(error => transition(ERROR_SAVE, true));
 
   }
 
@@ -47,11 +53,11 @@ export default function Appointment(props) {
     transition(DELETING, true);
 
     props
-    .cancelInterview(props.id)
-    .then(() => transition(EMPTY))
-    .catch(error => transition(ERROR_DELETE, true));
+      .cancelInterview(props.id)
+      .then(() => transition(EMPTY))
+      .catch(error => transition(ERROR_DELETE, true));
   }
-  
+
   // --------------- Appointment component --------------- //
 
   return (
@@ -87,11 +93,11 @@ export default function Appointment(props) {
           onSave={save}
         />
       )}
-      {mode === ERROR_SAVE && <Error onClose={() => back()}/>}
+      {mode === ERROR_SAVE && <Error onClose={() => back()} />}
       {mode === ERROR_DELETE && <Error onClose={() => back()} />}
-      {mode === SAVING && 
+      {mode === SAVING &&
         <Status message={SAVING} />}
-      {mode === DELETING && 
+      {mode === DELETING &&
         <Status message={DELETING} />}
       {mode === CONFIRM && (
         <Confirm
