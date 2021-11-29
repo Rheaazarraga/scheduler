@@ -5,7 +5,7 @@ import { decrementSpots, incrementSpots } from "components/helpers/selectors";
 // --------------- useApplicationData --------------- //
 
 export default function useApplicationData(props) {
-  // declare object that stores states
+  // declare object that stores initial states
 
   const [state, setState] = useState({
     day: "Monday",
@@ -32,7 +32,7 @@ export default function useApplicationData(props) {
   }, []);
 
 
-// --------------- bookInterview --------------- //
+// --------------- bookInterview Function--------------- //
 
   // records the newly created/ edited appointment in the API
 
@@ -51,6 +51,7 @@ export default function useApplicationData(props) {
       [id]: appointment
     };
 
+    // updates spots remaining
     const days = decrementSpots(state);
 
     // request to database: add interview to interviews table
@@ -65,7 +66,7 @@ export default function useApplicationData(props) {
   }
 
 
-// --------------- cancelInterview --------------- //
+// --------------- cancelInterview Function --------------- //
 
   // when we cancel an interview it will have its value set to null
   function cancelInterview(id) {
@@ -78,8 +79,8 @@ export default function useApplicationData(props) {
       ...state.appointments,
       [id]: appointment
     };
-    console.log("state.days", state.days);
 
+    // updates spots remaining
     const days = incrementSpots(state);
 
     // request to database: delete interview from interviews table
