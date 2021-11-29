@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { decrementSpots, incrementSpots } from "components/helpers/selectors";
 
 // --------------- useApplicationData --------------- //
 
@@ -50,6 +51,7 @@ export default function useApplicationData(props) {
       [id]: appointment
     };
 
+    const days = decrementSpots(state);
 
     // request to database: add interview to interviews table
     return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview })
@@ -57,6 +59,7 @@ export default function useApplicationData(props) {
         setState({
           ...state,
           appointments,
+          days
         });
       });
   }
@@ -75,6 +78,9 @@ export default function useApplicationData(props) {
       ...state.appointments,
       [id]: appointment
     };
+    console.log("state.days", state.days);
+
+    const days = incrementSpots(state);
 
     // request to database: delete interview from interviews table
     return axios.delete(`http://localhost:8001/api/appointments/${id}`, appointment)
@@ -82,6 +88,7 @@ export default function useApplicationData(props) {
         setState({
           ...state,
           appointments,
+          days
         });
       });
   }
