@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 export default function useApplicationData(props) {
+  // declare state with initial values
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -10,9 +11,11 @@ export default function useApplicationData(props) {
     interviewers: {}
   });
 
+  // set the currently selected day in the sidebar
   const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
+    // pull API data and update state with newly requested data
     Promise.all([
       axios.get(`http://localhost:8001/api/days`),
       axios.get(`http://localhost:8001/api/appointments`),
@@ -23,13 +26,17 @@ export default function useApplicationData(props) {
   }, []);
 
 
+  // records the newly created/ edited appointment in the API
   function bookInterview(id, interview) {
+    // replace that specific interview with the new state.appointments[id] interview
 
+    // create an appointment variable at the passed in id with the passed in interview data
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
     };
 
+     // create a new appointments variable that replaces the appointment at the passed in id
     const appointments = {
       ...state.appointments,
       [id]: appointment
@@ -37,6 +44,7 @@ export default function useApplicationData(props) {
 
     return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview })
       .then(() => {
+        // updates the local state with the updated interview information for the specific id in the API
         setState({
           ...state,
           appointments
@@ -45,7 +53,7 @@ export default function useApplicationData(props) {
       });
   }
 
-  // When we cancel an interview it will have its value set to null
+  // when we cancel an interview it will have its value set to null
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
@@ -59,6 +67,7 @@ export default function useApplicationData(props) {
 
     return axios.delete(`http://localhost:8001/api/appointments/${id}`, appointment)
       .then(() => {
+        // updates the local state with new information after successfully deleting the appointment in the API
         setState({
           ...state,
           appointments
