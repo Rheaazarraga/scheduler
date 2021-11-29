@@ -28,6 +28,8 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  // --------------- Save Function --------------- //
+
   function save(name, interviewer) {
 
     if (!name || !interviewer) {
@@ -48,6 +50,8 @@ export default function Appointment(props) {
       .catch(error => transition(ERROR_SAVE, true));
 
   }
+
+  // --------------- Delete Function --------------- //
 
   function deleteAppointment(event) {
     transition(DELETING, true);
@@ -106,7 +110,6 @@ export default function Appointment(props) {
           onCancel={() => back()}
         />
       )}
-
     </article>
   );
 }
