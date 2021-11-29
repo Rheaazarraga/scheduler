@@ -20,7 +20,7 @@ import Form from "components/Appointment/Form";
 
 // --------------- Stories --------------- //
 
-// Button
+// --------------- Button --------------- //
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -37,7 +37,7 @@ storiesOf("Button", module)
     </Button>
   ));
 
-// DayListItem
+// --------------- DayListItem --------------- //
 storiesOf("DayListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -49,7 +49,7 @@ storiesOf("DayListItem", module)
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
   ));
 
-// DayList & mock data
+// --------------- DayList & mock data --------------- //
 const days = [
   {
     id: 1,
@@ -82,7 +82,7 @@ storiesOf("DayList", module)
     <DayList days={days} value={"Wednesday"} onChange={action("setDay")} />
   ));
 
-// InterviewerListItem
+// --------------- InterviewerListItem --------------- //
 const interviewer = {
   id: 1,
   name: "Sylvia Palmer",
@@ -117,7 +117,7 @@ storiesOf("InterviewerListItem", module)
   ));
 
 
-// Interviewer List
+// --------------- Interviewer List --------------- //
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -148,7 +148,7 @@ storiesOf("InterviewerList", module)
     />
   ));
 
-  // Appointment
+  // --------------- Appointment --------------- //
 storiesOf("Appointment", module)
   .addParameters({
     backgrounds: [{ name: "white", value: "#fff", default: true }]
