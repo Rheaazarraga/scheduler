@@ -21,10 +21,18 @@ This project by [Rhea Azarraga](https://github.com/Rheaazarraga) is created as p
 - node-sass ^4.14.0
 - library/jest-dom ^4.0.0
 
+## Final Product
+---
+
+![scheduler1](https://user-images.githubusercontent.com/84409001/143956428-d512f8cb-c363-40cd-a008-680d81925fff.png)
+![scheduler2](https://user-images.githubusercontent.com/84409001/143956434-a8343f2a-95f0-4a78-8c6b-9ada1672dd52.png)
+
 ## Setup
 ---
 
-Install dependencies with `npm install`.
+- Install dependencies with `npm install`. 
+
+- Fork and clone the [Scheduler API](https://github.com/lighthouse-labs/scheduler-api) project outside of the Scheduler project directory.
 
 ## Running Webpack Development Server
 ---
