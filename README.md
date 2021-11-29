@@ -23,7 +23,7 @@ This project by [Rhea Azarraga](https://github.com/Rheaazarraga) is created as p
 
 ## Final Product
 ---
-[![scedulerdemo](https://user-images.githubusercontent.com/84409001/143958714-f4a5300d-5e0d-47ce-9374-7173ec50abe3.mp4)
+[!sceduler demo](https://user-images.githubusercontent.com/84409001/143958714-f4a5300d-5e0d-47ce-9374-7173ec50abe3.mp4)
 ![scheduler1](https://user-images.githubusercontent.com/84409001/143956428-d512f8cb-c363-40cd-a008-680d81925fff.png)
 ![scheduler2](https://user-images.githubusercontent.com/84409001/143956434-a8343f2a-95f0-4a78-8c6b-9ada1672dd52.png)
 
