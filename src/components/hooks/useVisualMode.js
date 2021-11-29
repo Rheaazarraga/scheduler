@@ -10,9 +10,11 @@ export default function useVisualMode(initial) {
 
   const transition = (newMode, replace = false) => {
     setMode(newMode);
-    //when replace is true then set the history to reflect that we are replacing the current mode
+    // when replace is true then set the history to reflect that we are replacing the current mode
     replace ? setHistory(prev => [...prev.slice(0, history.length - 1), newMode]) : setHistory(prev => [...prev, newMode]);
   };
+
+
 // --------------- Back function --------------- //
 
   const back = () => {
@@ -20,16 +22,16 @@ export default function useVisualMode(initial) {
       return;
     }
 
-    //storing newHistory with a copy of history array
+    // storing newHistory with a copy of history array
     const newHistory = [...history];
     //using pop method to remove the last element from the array, changing the length to transition back
     newHistory.pop();
 
-    //setting the mode to the updated history, last element in the history array
+    // setting the mode to the updated history, last element in the history array
     const prevMode = newHistory[newHistory.length - 1];
     setMode(prevMode);
 
-    setHistory(newHistory); //setting the history to the array that doesn't have the last element
+    setHistory(newHistory); // setting the history to the array that doesn't have the last element
   }
   return { mode, transition, back };
 };
