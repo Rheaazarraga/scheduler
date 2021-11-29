@@ -42,8 +42,6 @@ export function getInterviewersForDay(state, day) {
 // --------------- getRemainingSpots function --------------- //
 
 export function decrementSpots(state) {
-  console.log("state.day---", state.day)
-  console.log("state.days-----", state.days);
 
   const newDays = [];
 
