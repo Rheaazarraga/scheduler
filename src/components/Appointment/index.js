@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./styles.scss";
 import Header from "./Header";
 import Show from "./Show";
@@ -112,4 +113,12 @@ export default function Appointment(props) {
       )}
     </article>
   );
-}
+};
+
+Appointment.propTypes = {
+  bookInterview: PropTypes.func,
+  interview: PropTypes.object,
+  interviewers: PropTypes.array,
+  onDelete: PropTypes.func,
+  time: PropTypes.string
+};
