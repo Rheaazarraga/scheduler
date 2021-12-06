@@ -97,7 +97,6 @@ describe("Form", () => {
     const { getByText, getByPlaceholderText, queryByText } = render(
       <Form 
         interviewers={interviewers} 
-        value={"Tori Malcolm"}
         onSave={onSave} 
       />
     );
