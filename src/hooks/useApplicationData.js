@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { decrementSpots, incrementSpots } from "components/helpers/selectors";
+import { decrementSpots, incrementSpots } from "helpers/selectors";
 
 // --------------- useApplicationData --------------- //
 
