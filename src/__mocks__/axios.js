@@ -90,6 +90,14 @@ export default {
       status: 204,
       statusText: "No content"
     });
+  }),
 
-  })
-}
+   // --------------- mock axios DELETE request
+   
+   delete: jest.fn(() => {
+     return Promise.resolve({
+       status: 200,
+       statusText: "Appointment successfully deleted"
+     });
+   })
+};
