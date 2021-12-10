@@ -1,6 +1,19 @@
 import React from "react";
 
-import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId, getAltText, getByPlaceholderText, getByAltText, queryByText, queryByAltText } from "@testing-library/react";
+import { 
+  render,
+  cleanup,
+  waitForElement,
+  fireEvent,
+  getByText,
+  prettyDOM,
+  getAllByTestId,
+  getAltText,
+  getByPlaceholderText,
+  getByAltText,
+  queryByText,
+  queryByAltText,
+  debug } from "@testing-library/react";
 
 import Application from "components/Application";
 
