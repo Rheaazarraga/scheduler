@@ -17,6 +17,7 @@ import {
 
 import Application from "components/Application";
 
+import axios from "axios";
 
 afterEach(cleanup);
 
