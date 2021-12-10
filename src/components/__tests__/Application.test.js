@@ -17,6 +17,7 @@ import {
 
 import Application from "components/Application";
 
+
 afterEach(cleanup);
 
 describe("Application", () => {
@@ -108,7 +109,18 @@ describe("Application", () => {
 });
 
 
-// "loads data, edits an interview and keeps the spots remaining for Monday the same"
+it("loads data, edits an interview and keeps the spots remaining for Monday the same", () => {
+
+  // 1. start by finding an existing interview
+
+  // 2. with the existing interview we want to find the edit button
+
+  // 3. change the name and save the interview
+
+  // 4. We don't want the spots to change for "Monday", since this is an edit
+
+
+});
 
 
 // "shows the save error when failing to save an appointment"
