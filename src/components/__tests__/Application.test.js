@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId, getAltText, getByPlaceholderText, getByAltText } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId, getAltText, getByPlaceholderText, getByAltText, debug } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -21,7 +21,7 @@ it("defaults to Monday and changes the schedule when a new day is selected", asy
 
 it("loads data, books an interview and reduces the spots remaining for the first day by 1", async() => {
   // render the application
-  const { container } = render(<Application />);
+  const { container, debug } = render(<Application />);
 
   // wait until the text "Archie Cohen is displayed"
   await waitForElement(() => getByText(container, "Archie Cohen"));
