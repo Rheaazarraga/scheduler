@@ -26,7 +26,7 @@ it("loads data, books an interview and reduces the spots remaining for the first
 
   const appointments = getAllByTestId(container, "appointment");
 
-  const appointment = getAllByTestId(container, "appointment")[0];
+  const appointment = appointments[0];
 
   fireEvent.click(getByAltText(appointment, "Add"));
 
@@ -37,7 +37,7 @@ it("loads data, books an interview and reduces the spots remaining for the first
 
   fireEvent.click(getByText(appointment, "Save"));
 
-
+  console.log(prettyDOM(appointment));
 });
 
 });
