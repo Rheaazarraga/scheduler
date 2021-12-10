@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -23,7 +23,10 @@ it("loads data, books an interview and reduces the spots remaining for the first
   const { container } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
-  console.log(prettyDOM(container));
+
+  const appointments = getAllByTestId(container, "appointment");
+  
+  console.log(prettyDOM(appointments));
 });
 
 });
