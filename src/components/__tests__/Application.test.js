@@ -45,13 +45,12 @@ it("loads data, books an interview and reduces the spots remaining for the first
   fireEvent.click(getByText(appointment, "Save"));
 
   console.log(prettyDOM(appointment));
-  
-  
-  // --------------- More test plans --------------- //
-  expect(getByText(appointment, "Saving")).toBeInTheDocument();
+
   // check that the element with the text "Saving" is displayed
+  expect(getByText(appointment, "Saving")).toBeInTheDocument();
   
   // wait until the element with the text "Lydia Miller-Jones" is displayed
+  await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
   
   // check that the DayListItem with the text "Monday" also has the text "no spots remaining"
 });
