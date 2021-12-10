@@ -89,10 +89,13 @@ describe("Application", () => {
    expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
 
    // 4. check that the confirmation message is shown
+   await waitForElement(() => getByText(appointment, /are you sure you would like to delete/i));
  
    // 5. click the "Confirm" button on the confirmation
+   fireEvent.click(getByText(appointment, "Confirm"));
  
    // 6. check that the element with the text "Deleting" is displayed
+   expect(getByText(appointment, "Deleting")).toBeInTheDocument();
  
  
    // 7. wait until the element with the "Add" button is displayed
