@@ -86,22 +86,22 @@ describe("Application", () => {
 
    fireEvent.click(queryByAltText(appointment, "Delete"));
 
-   expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
-
    // 4. check that the confirmation message is shown
-   await waitForElement(() => getByText(appointment, /are you sure you would like to delete/i));
- 
+   expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
+   
    // 5. click the "Confirm" button on the confirmation
    fireEvent.click(getByText(appointment, "Confirm"));
  
    // 6. check that the element with the text "Deleting" is displayed
    expect(getByText(appointment, "Deleting")).toBeInTheDocument();
  
- 
    // 7. wait until the element with the "Add" button is displayed
- 
+   await waitForElement(() => getByAltText(appointment, "Add"));
  
    // 8. check that the DayListItem with the text "Monday" also has the text "2 spots remaining"
+   const day = getAllByTestId(container, "day").find(day => queryByText(day, "Monday"));
+
+   expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
 
    debug();
  
