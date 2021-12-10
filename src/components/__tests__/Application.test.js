@@ -25,8 +25,10 @@ it("loads data, books an interview and reduces the spots remaining for the first
   await waitForElement(() => getByText(container, "Archie Cohen"));
 
   const appointments = getAllByTestId(container, "appointment");
-  
-  console.log(prettyDOM(appointments));
+
+  const appointment = getAllByTestId(container, "appointment")[0];
+
+  console.log(prettyDOM(appointment));
 });
 
 });
