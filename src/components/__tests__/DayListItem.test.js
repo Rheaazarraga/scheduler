@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, cleanup, waitForElement, getByText, getAllByTestId, queryByText, debug } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, getByText, getAllByTestId, queryByText, queryByAltText, debug } from "@testing-library/react";
 
 import DayListItem from "components/DayListItem";
 import Application from "components/Application";
@@ -32,6 +32,9 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
    await waitForElement(() => getByText(container, "Archie Cohen"));
 
    // 3. click the "Delete" button on the booked appointment
+   const appointment = getAllByTestId(container, "appointment").find(appointment => queryByText(appointment, "Archie Cohen"));
+
+   fireEvent.click(queryByAltText(appointment, "Delete"));
 
    // 4. check that the confirmation message is shown
  
@@ -44,6 +47,8 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
  
  
    // 8. check that the DayListItem with the text "Monday" also has the text "2 spots remaining"
+
+   debug();
  
 });
 
