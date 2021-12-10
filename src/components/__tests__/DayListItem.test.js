@@ -1,8 +1,9 @@
 import React from "react";
 
-import { render, cleanup, getByText, getAllByTestId, queryByText, debug } from "@testing-library/react";
+import { render, cleanup, waitForElement, getByText, getAllByTestId, queryByText, debug } from "@testing-library/react";
 
 import DayListItem from "components/DayListItem";
+import Application from "components/Application";
 
 afterEach(cleanup);
 
@@ -22,15 +23,16 @@ it("renders '2 spots remaining' when there are 2 spots", () => {
   expect(getByText("2 spots remaining")).toBeInTheDocument();
 });
 
-it("loads data, cancels an interview and increases the spots remaining for Monday by 1", () => {
+it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async() => {
 
     // 1. render the Application
- 
+    const { container, debug } = render(<Application />);
  
    // 2. wait until the text "Archie Cohen" is displayed
- 
+   await waitForElement(() => getByText(container, "Archie Cohen"));
+
    // 3. click the "Delete" button on the booked appointment
- 
+
    // 4. check that the confirmation message is shown
  
    // 5. click the "Confirm" button on the confirmation
