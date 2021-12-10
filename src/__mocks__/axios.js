@@ -85,7 +85,6 @@ export default {
 
   // --------------- mock axios PUT requests
 
-
   put: jest.fn(() => {
     return Promise.resolve({
       status: 204,
