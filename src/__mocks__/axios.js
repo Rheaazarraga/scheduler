@@ -53,6 +53,8 @@ const fixtures = {
   }
 };
 
+// --------------- mock axios GET requests
+
 export default {
   defaults: { baseURL: "" },
   get: jest.fn(url => {
@@ -79,5 +81,16 @@ export default {
         data: fixtures.interviewers
       });
     }
+  }),
+
+  // --------------- mock axios PUT requests
+
+
+  put: jest.fn(() => {
+    return Promise.resolve({
+      status: 204,
+      statusText: "No content"
+    });
+
   })
-};
+}
