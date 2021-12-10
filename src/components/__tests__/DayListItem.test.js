@@ -22,7 +22,28 @@ it("renders '2 spots remaining' when there are 2 spots", () => {
   expect(getByText("2 spots remaining")).toBeInTheDocument();
 });
 
-//"loads data, cancels an interview and increases the spots remaining for Monday by 1"
+it("loads data, cancels an interview and increases the spots remaining for Monday by 1", () => {
+
+    // 1. render the Application
+ 
+ 
+   // 2. wait until the text "Archie Cohen" is displayed
+ 
+   // 3. click the "Delete" button on the booked appointment
+ 
+   // 4. check that the confirmation message is shown
+ 
+   // 5. click the "Confirm" button on the confirmation
+ 
+   // 6. check that the element with the text "Deleting" is displayed
+ 
+ 
+   // 7. wait until the element with the "Add" button is displayed
+ 
+ 
+   // 8. check that the DayListItem with the text "Monday" also has the text "2 spots remaining"
+ 
+});
 
 
 // "loads data, edits an interview and keeps the spots remaining for Monday the same"
