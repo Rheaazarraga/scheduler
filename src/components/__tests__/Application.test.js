@@ -8,12 +8,10 @@ import {
   getByText,
   getAllByTestId,
   getAltText,
-  prettyDOM,
   getByPlaceholderText,
   getByAltText,
   queryByText,
   queryByAltText,
-  debug
 } from "@testing-library/react";
 
 import Application from "components/Application";
@@ -41,7 +39,6 @@ describe("Application", () => {
     // render the application
     const { container } = render(<Application />);
 
-    // wait until the text "Archie Cohen is displayed"
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // get all the appointment articles
@@ -80,9 +77,8 @@ describe("Application", () => {
   // --------------- DELETE INTERVIEW --------------- //
 
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
-
     // 1. render the Application
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     // 2. wait until the text "Archie Cohen" is displayed
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -109,15 +105,13 @@ describe("Application", () => {
 
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
 
-    debug();
-
   });
 
   // --------------- EDIT INTERVIEW --------------- //
 
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     // 1. render the Application
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     // 2. wait until the text "Archie Cohen" is displayed
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -160,7 +154,7 @@ describe("Application", () => {
     axios.put.mockRejectedValueOnce();
 
     // 1. render the Application
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     // 2. wait until the text "Archie Cohen" is displayed
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -185,11 +179,11 @@ describe("Application", () => {
 
   });
 
-  it("shows the delete error when failing to delete an existing appointment", async() => {
+  it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
 
     // 1. render the Application
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     // 2. wait until the text "Archie Cohen" is displayed
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -197,7 +191,7 @@ describe("Application", () => {
     // 3. grab the appointment article that contains the text "Archie Cohen" from the mock data
     const appointment = getAllByTestId(container, "appointment").find(
       appointment => queryByText(appointment, "Archie Cohen"));
-    
+
     // 4. click the delete button on the existing appointment
     fireEvent.click(queryByAltText(appointment, "Delete"));
 
@@ -212,7 +206,6 @@ describe("Application", () => {
 
     // 8. expect error deleting appointment to be displayed
     expect(getByText(container, "Error deleting appointment")).toBeInTheDocument();
-
 
   });
 
