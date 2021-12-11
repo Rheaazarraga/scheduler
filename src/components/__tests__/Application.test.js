@@ -152,12 +152,14 @@ describe("Application", () => {
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
 
   });
+  
+  
+  it("shows the save error when failing to save an appointment", () => {
+    // mock will revert to default behaviour after this test request is complete
+    axios.put.mockRejectedValueOnce();
+  });
 
 });
-
-
-  // "shows the save error when failing to save an appointment"
-
 
   // "shows the delete error when failing to delete an existing appointment"
 
