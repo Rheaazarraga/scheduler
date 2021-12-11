@@ -155,13 +155,15 @@ describe("Application", () => {
   
   // --------------- SAVE ERROR HANDLING --------------- //
 
-  it("shows the save error when failing to save an appointment", () => {
+  it("shows the save error when failing to save an appointment", async() => {
     // mock will revert to default behaviour after this test request is complete
     axios.put.mockRejectedValueOnce();
 
     // 1. render the Application
+    const { container, debug } = render(<Application />);
 
     // 2. wait until the text "Archie Cohen" is displayed
+    await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // 3. get all the appointments using the test ID, then get the first empty appointment
 
@@ -184,7 +186,7 @@ describe("Application", () => {
     // 11. expect that the empty form is being displayed
 
     // 12. expect there to still be 1 spot remaining for Monday
-    
+
   });
 
 });
