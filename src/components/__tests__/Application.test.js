@@ -210,11 +210,8 @@ describe("Application", () => {
     // 7. wait for element with the text "Error" to be displayed
     await waitForElement(() => getByText(appointment, "Error"));
 
-    // 8. check that the element with the text "Deleting" is displayed
+    // 8. expect error deleting appointment to be displayed
     expect(getByText(container, "Error deleting appointment")).toBeInTheDocument();
-
-
-    // 9. expect error deleting appointment to be displayed
 
 
   });
