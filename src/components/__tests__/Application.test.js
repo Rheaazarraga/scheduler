@@ -153,10 +153,38 @@ describe("Application", () => {
 
   });
   
-  
+  // --------------- SAVE ERROR HANDLING --------------- //
+
   it("shows the save error when failing to save an appointment", () => {
     // mock will revert to default behaviour after this test request is complete
     axios.put.mockRejectedValueOnce();
+
+    // 1. render the Application
+
+    // 2. wait until the text "Archie Cohen" is displayed
+
+    // 3. get all the appointments using the test ID, then get the first empty appointment
+
+    // 4. click the "Add" button on the first empty appointment
+
+    // 5. enter the name "Lydia Miller-Jones into the input with the placeholder "Enter Student Name"
+
+    // 5. click the first interview on the list, "Sylvia Palmer"
+
+    // 6. click the "Save" button on that same appointment
+
+    // 7. check that the element with the text "Saving" is being displayed
+
+    // 8. wait until the element with the error text is being displayed
+
+    // 9. click the "close" button
+
+    // 10. click the add button again
+
+    // 11. expect that the empty form is being displayed
+
+    // 12. expect there to still be 1 spot remaining for Monday
+    
   });
 
 });
