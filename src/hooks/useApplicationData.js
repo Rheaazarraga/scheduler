@@ -37,7 +37,6 @@ export default function useApplicationData(props) {
   // records the newly created/ edited appointment in the API
 
   function bookInterview(id, interview, newInterview) {
-    console.log("newInterview---", newInterview);
 
     // replace that specific interview with the new state.appointments[id] interview
     // create an appointment variable at the passed in id with the passed in interview data
