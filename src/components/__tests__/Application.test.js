@@ -132,28 +132,25 @@ describe("Application", () => {
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Rhea Jane" }
     });
-    // debug();
 
-    // select an interviewer
+    // 5. select an interviewer
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
 
-    // 5. click the "Save" button on that same appointment
+    // 6. click the "Save" button on that same appointment
     fireEvent.click(getByText(appointment, "Save"));
-    // debug();
-    // 6. check that the element with the text "Saving" is displayed
+
+    // 7. check that the element with the text "Saving" is displayed
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
-    console.log(prettyDOM(container));
 
     // 8. wait until the element with the text "Rhea Jane" is displayed
     await waitForElement(() => getByText(appointment, "Rhea Jane"));
 
-    // 8. check that the DayListItem with the text "Monday" also contains the text "1 spot remaining"
+    // 9. check that the DayListItem with the text "Monday" also contains the text "1 spot remaining"
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
 
-    // debug();
   });
 
 });
