@@ -185,8 +185,31 @@ describe("Application", () => {
 
   });
 
+  it("shows the delete error when failing to delete an existing appointment", async() => {
+    axios.delete.mockRejectedValueOnce();
+
+    // 1. render the Application
+
+    // 2. wait until the text "Archie Cohen" is displayed
+
+    // 3. grab the appointment article that contains the text "Archie Cohen" from the mock data
+    
+    // 4. click the delete button on the existing appointment 
+
+    // 5. check that the confirmation message is shown
+
+    // 6. click the "Confirm" button on the confirmation
+
+    // 7. check that the element with the text "Deleting" is displayed
+
+    // 8. wait for element with the text "Error" to be displayed
+
+    // 9. expect error deleting appointment to be displayed
+
+
+  });
+
 });
 
-  // "shows the delete error when failing to delete an existing appointment"
 
 
