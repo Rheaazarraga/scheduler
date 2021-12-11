@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
 import Header from "./Header";
@@ -14,7 +14,7 @@ import useVisualMode from "hooks/useVisualMode";
 // --------------- Component Function --------------- //
 
 export default function Appointment(props) {
-
+  const [newInterview, setNewInterview] = useState(false);
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -39,9 +39,9 @@ export default function Appointment(props) {
     };
 
     transition(SAVING);
-
+    console.log("newInterview----", newInterview);
     props
-      .bookInterview(props.id, interview)
+      .bookInterview(props.id, interview, newInterview)
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true));
 
@@ -57,6 +57,15 @@ export default function Appointment(props) {
       .then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETE, true));
   }
+  function onAdd() {
+    transition(CREATE) 
+    setNewInterview(true);
+  }
+
+  function onEdit() {
+    transition(EDIT) 
+    setNewInterview(false);
+  }
 
   // --------------- Appointment component --------------- //
 
@@ -66,13 +75,13 @@ export default function Appointment(props) {
       <Header
         time={props.time}>
       </Header>
-      {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+      {mode === EMPTY && <Empty onAdd={onAdd} />}
       {mode === SHOW && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer.name}
           onDelete={() => transition(CONFIRM)}
-          onEdit={() => transition(EDIT)}
+          onEdit={onEdit}
         />
       )}
       {mode === CREATE && (
