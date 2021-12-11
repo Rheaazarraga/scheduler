@@ -17,7 +17,7 @@ export default function useApplicationData(props) {
   // set the currently selected day in the sidebar
   const setDay = day => setState({ ...state, day });
 
-// --------------- useEffect --------------- //
+  // --------------- useEffect --------------- //
 
   // requests the days, appointments and interviews data. The promise resolves when all get requests are complete.
 
@@ -32,11 +32,12 @@ export default function useApplicationData(props) {
   }, []);
 
 
-// --------------- bookInterview Function--------------- //
+  // --------------- bookInterview Function--------------- //
 
   // records the newly created/ edited appointment in the API
 
-  function bookInterview(id, interview) {
+  function bookInterview(id, interview, newInterview) {
+    console.log("newInterview---", newInterview);
 
     // replace that specific interview with the new state.appointments[id] interview
     // create an appointment variable at the passed in id with the passed in interview data
@@ -45,14 +46,18 @@ export default function useApplicationData(props) {
       interview: { ...interview }
     };
 
-     // create a new appointments variable that replaces the appointment at the passed in id
+    // create a new appointments variable that replaces the appointment at the passed in id
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
 
-    // updates spots remaining
-    const days = decrementSpots(state);
+    // updates spots remaining, if newInterview is added, decrement spots
+    let days = state.days;
+    if (newInterview) {
+      days = decrementSpots(state);
+    }
+
 
     // request to database: add interview to interviews table
     return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview })
@@ -66,7 +71,7 @@ export default function useApplicationData(props) {
   }
 
 
-// --------------- cancelInterview Function --------------- //
+  // --------------- cancelInterview Function --------------- //
 
   // when we cancel an interview it will have its value set to null
   function cancelInterview(id) {
