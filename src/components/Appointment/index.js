@@ -57,13 +57,15 @@ export default function Appointment(props) {
       .then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETE, true));
   }
+  // when a new interview is being booked, the add button is clicked, decrementing the remaining spots
   function onAdd() {
-    transition(CREATE) 
+    transition(CREATE)
     setNewInterview(true);
   }
 
+  // when an existing interview is being edited, the edit button is clicked and spots remaining do not change
   function onEdit() {
-    transition(EDIT) 
+    transition(EDIT)
     setNewInterview(false);
   }
 
