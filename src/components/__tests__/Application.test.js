@@ -179,6 +179,8 @@ describe("Application", () => {
 
   });
 
+  // --------------- DELETE ERROR HANDLING --------------- //
+
   it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
 
