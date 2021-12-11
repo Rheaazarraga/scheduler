@@ -152,10 +152,10 @@ describe("Application", () => {
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
 
   });
-  
+
   // --------------- SAVE ERROR HANDLING --------------- //
 
-  it("shows the save error when failing to save an appointment", async() => {
+  it("shows the save error when failing to save an appointment", async () => {
     // mock will revert to default behaviour after this test request is complete
     axios.put.mockRejectedValueOnce();
 
@@ -166,26 +166,22 @@ describe("Application", () => {
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // 3. get all the appointments using the test ID, then get the first empty appointment
+    const appointments = getAllByTestId(container, "appointment");
+    const appointment = appointments[0];
 
     // 4. click the "Add" button on the first empty appointment
+    fireEvent.click(getByAltText(appointment, "Add"));
 
     // 5. enter the name "Lydia Miller-Jones into the input with the placeholder "Enter Student Name"
-
-    // 5. click the first interview on the list, "Sylvia Palmer"
+    fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+      target: { value: "Lydia Miller-Jones" }
+    });
 
     // 6. click the "Save" button on that same appointment
+    fireEvent.click(getByText(appointment, "Save"));
 
-    // 7. check that the element with the text "Saving" is being displayed
-
-    // 8. wait until the element with the error text is being displayed
-
-    // 9. click the "close" button
-
-    // 10. click the add button again
-
-    // 11. expect that the empty form is being displayed
-
-    // 12. expect there to still be 1 spot remaining for Monday
+    // 7. expect the error message informing the user to select an interviewer
+    expect(getByText(appointment, "You must select an interviewer")).toBeInTheDocument();
 
   });
 
