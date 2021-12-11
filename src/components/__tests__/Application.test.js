@@ -189,20 +189,30 @@ describe("Application", () => {
     axios.delete.mockRejectedValueOnce();
 
     // 1. render the Application
+    const { container, debug } = render(<Application />);
 
     // 2. wait until the text "Archie Cohen" is displayed
+    await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // 3. grab the appointment article that contains the text "Archie Cohen" from the mock data
+    const appointment = getAllByTestId(container, "appointment").find(
+      appointment => queryByText(appointment, "Archie Cohen"));
     
-    // 4. click the delete button on the existing appointment 
+    // 4. click the delete button on the existing appointment
+    fireEvent.click(queryByAltText(appointment, "Delete"));
 
-    // 5. check that the confirmation message is shown
+    // 5. check that the deletion confirmation message is shown
+    expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
 
     // 6. click the "Confirm" button on the confirmation
+    fireEvent.click(getByText(appointment, "Confirm"));
 
-    // 7. check that the element with the text "Deleting" is displayed
+    // 7. wait for element with the text "Error" to be displayed
+    await waitForElement(() => getByText(appointment, "Error"));
 
-    // 8. wait for element with the text "Error" to be displayed
+    // 8. check that the element with the text "Deleting" is displayed
+    expect(getByText(container, "Error deleting appointment")).toBeInTheDocument();
+
 
     // 9. expect error deleting appointment to be displayed
 
