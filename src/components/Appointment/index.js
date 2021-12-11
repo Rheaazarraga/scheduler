@@ -39,7 +39,7 @@ export default function Appointment(props) {
     };
 
     transition(SAVING);
-    console.log("newInterview----", newInterview);
+    
     props
       .bookInterview(props.id, interview, newInterview)
       .then(() => transition(SHOW))
